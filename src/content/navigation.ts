@@ -1,0 +1,56 @@
+import type { Locale, NavigationLabels } from "@/types/portfolio";
+
+const labels: Record<Locale, NavigationLabels> = {
+  en: {
+    home: "Home",
+    projects: "Projects",
+    about: "About",
+    allProjects: "All Projects",
+    featuredProjects: "Featured Projects",
+    experience: "Experience",
+    skills: "Skills",
+    education: "Education",
+    contact: "Contact",
+    viewProject: "View project",
+    backToProjects: "Back to projects",
+    present: "Present",
+    role: "Role",
+    techStack: "Tech Stack",
+    technicalDecisions: "Technical Decisions",
+    responsibilities: "Responsibilities",
+    outcomes: "Outcomes",
+    architecture: "Architecture",
+    switchLanguage: "Tiếng Việt",
+    notFoundTitle: "Page not found",
+    notFoundDescription: "The page you're looking for doesn't exist or has been moved.",
+    backToHome: "Back to home",
+  },
+  vi: {
+    home: "Trang chủ",
+    projects: "Dự án",
+    about: "Giới thiệu",
+    allProjects: "Tất cả dự án",
+    featuredProjects: "Dự án nổi bật",
+    experience: "Kinh nghiệm",
+    skills: "Kỹ năng",
+    education: "Học vấn",
+    contact: "Liên hệ",
+    viewProject: "Xem dự án",
+    backToProjects: "Quay lại dự án",
+    present: "Hiện tại",
+    role: "Vai trò",
+    techStack: "Công nghệ",
+    technicalDecisions: "Quyết định kỹ thuật",
+    responsibilities: "Trách nhiệm",
+    outcomes: "Kết quả",
+    architecture: "Kiến trúc",
+    switchLanguage: "English",
+    notFoundTitle: "Không tìm thấy trang",
+    notFoundDescription: "Trang bạn đang tìm không tồn tại hoặc đã được di chuyển.",
+    backToHome: "Quay lại trang chủ",
+  },
+};
+
+export function getLabels(locale: Locale): NavigationLabels {
+  return labels[locale];
+}
