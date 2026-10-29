@@ -1,5 +1,3 @@
-export const instant = false;
-
 import type { Metadata } from "next";
 import type { Locale } from "@/types/portfolio";
 import { isValidLocale } from "@/lib/i18n";

@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { locales } from "@/lib/i18n";
 import { getAllProjectSlugs } from "@/lib/content";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://example.com";
   const slugs = getAllProjectSlugs();

@@ -1,5 +1,3 @@
-export const instant = false;
-
 import { notFound } from "next/navigation";
 import type { Locale } from "@/types/portfolio";
 import { isValidLocale } from "@/lib/i18n";

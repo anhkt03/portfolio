@@ -1,5 +1,3 @@
-export const instant = false;
-
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { Locale } from "@/types/portfolio";
