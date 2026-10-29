@@ -24,7 +24,7 @@ export const projectsShared: Record<string, ProjectShared> = {
       "Vector Database", "Embeddings", "Python",
       "Telegram Bot API", "Docker",
     ],
-    featured: true,
+    featured: false,
     startDate: "2026-04",
   },
   "techglobal-livegts": {
