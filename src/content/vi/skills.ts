@@ -36,11 +36,19 @@ export const skills: SkillGroup[] = [
     ],
   },
   {
+    title: "AI & Học máy",
+    skills: [
+      "Prompt Engineering", "RAG (Retrieval-Augmented Generation)",
+      "Vector Databases & Embeddings", "Tích hợp LLM",
+      "Claude API", "OpenAI API", "Phát triển hỗ trợ AI",
+      "GitHub Copilot", "Claude Code", "Cursor",
+    ],
+  },
+  {
     title: "Bổ sung",
     skills: [
       "Flutter / Dart", "Python", "Java Core",
       "Agile", "Scrum", "Jira", "V-model",
-      "AI Prompting", "RAG", "Embeddings",
     ],
   },
 ];
