@@ -96,6 +96,15 @@ export const projectsShared: Record<string, ProjectShared> = {
     startDate: "2026-10",
     liveUrl: "https://thiepso.io.vn",
   },
+  "passenger-transport": {
+    slug: "passenger-transport",
+    technologies: [
+      "C#", "ASP.NET Core", "React", "Zalo Mini App",
+      "SQL Server", "REST APIs",
+    ],
+    featured: false,
+    startDate: "",
+  },
 };
 
 export const projectOrder = [
@@ -103,6 +112,7 @@ export const projectOrder = [
   "coco-system",
   "techglobal-livegts",
   "thiep-so",
+  "passenger-transport",
   "food-order-microservices",
   "bjo-web3",
   "employee-management-crm",
@@ -138,4 +148,5 @@ export const socialLinks = {
   github: "https://github.com/anhkt03",
   linkedin: "https://www.linkedin.com/in/may16th03",
   email: "kttanhforwork@gmail.com",
+  phone: "+84969405887",
 };

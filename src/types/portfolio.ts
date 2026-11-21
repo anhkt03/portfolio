@@ -12,6 +12,7 @@ export interface Profile {
   summary: string;
   location: string;
   email: string;
+  phone?: string;
   socialLinks: SocialLink[];
   resumeUrl?: string;
 }
@@ -97,4 +98,12 @@ export interface NavigationLabels {
   notFoundTitle: string;
   notFoundDescription: string;
   backToHome: string;
+  resume: string;
+  viewResume: string;
+  downloadResume: string;
+  contactMe: string;
+  contactIntro: string;
+  phone: string;
+  emailMe: string;
+  getInTouch: string;
 }

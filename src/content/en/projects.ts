@@ -140,6 +140,21 @@ export const projects: Record<string, ProjectLocalized> = {
     architecture:
       "Full-stack platform with ASP.NET Core backend (clean architecture: Domain, Application, Infrastructure, API layers) and Next.js frontend. Supports two invitation modes: Shared (one link for all guests) and Personalized (unique card per guest with individual name rendering). PostgreSQL for data persistence, AWS S3 for media assets.",
   },
+  "passenger-transport": {
+    title: "Passenger Transportation Management System",
+    shortDescription:
+      "Bus operations platform for trip scheduling, sleeper seat allocation, passenger boarding, payment tracking, and pickup/drop-off management — with a Zalo Mini App front-end and operator dashboards.",
+    context: "Freelance — Full-stack Developer",
+    role: "Full Stack Developer",
+    responsibilities: [
+      "Developed passenger and trip management: trip scheduling, single/double sleeper seat allocation, pickup and drop-off management",
+      "Implemented passenger check-in and payment status tracking for onboard staff during trip operations",
+      "Built management dashboards for revenue reporting, trip statistics, and customer travel behavior analysis",
+      "Integrated a Zalo Mini App into the transportation ecosystem to support operational workflows",
+    ],
+    architecture:
+      "ASP.NET Core backend serving REST APIs for operators and a Zalo Mini App for drivers/passengers, with a React web dashboard for bus operators. Supports single/double sleeper seat layouts, passenger verification, and payment reconciliation.",
+  },
   "social-media-app": {
     title: "Social Media Web Application",
     shortDescription:

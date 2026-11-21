@@ -140,6 +140,21 @@ export const projects: Record<string, ProjectLocalized> = {
     architecture:
       "Nền tảng full-stack với backend ASP.NET Core (kiến trúc sạch: Domain, Application, Infrastructure, API layers) và frontend Next.js. Hỗ trợ hai chế độ thiệp mời: Chia sẻ (một link cho tất cả khách mời) và Cá nhân hóa (thiệp riêng cho từng khách mời với tên riêng). PostgreSQL cho lưu trữ dữ liệu, AWS S3 cho tài sản media.",
   },
+  "passenger-transport": {
+    title: "Hệ thống Quản lý Vận tải Hành khách",
+    shortDescription:
+      "Nền tảng quản lý xe khách: lịch trình, sắp xếp ghế nằm đơn/đôi, check-in hành khách, theo dõi thanh toán và quản lý điểm đón/trả — với Zalo Mini App cho khách và dashboard quản lý cho nhà xe.",
+    context: "Freelance — Full-stack Developer",
+    role: "Full Stack Developer",
+    responsibilities: [
+      "Phát triển quản lý hành khách và chuyến đi: lên lịch chuyến, sắp xếp ghế nằm đơn/đôi, quản lý điểm đón/trả",
+      "Triển khai check-in và theo dõi trạng thái thanh toán cho nhân viên trên xe trong suốt hành trình",
+      "Xây dựng dashboard quản lý doanh thu, thống kê chuyến đi và phân tích hành vi đi lại của khách hàng",
+      "Tích hợp Zalo Mini App vào hệ sinh thái vận tải để hỗ trợ quy trình vận hành",
+    ],
+    architecture:
+      "Backend ASP.NET Core cung cấp REST API cho nhà xe và Zalo Mini App cho tài xế/hành khách, kèm dashboard React cho nhà xe. Hỗ trợ ghế nằm đơn/đôi, xác thực hành khách và đối soát thanh toán.",
+  },
   "social-media-app": {
     title: "Ứng dụng Mạng Xã Hội",
     shortDescription:

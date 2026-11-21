@@ -26,3 +26,9 @@ export function cn(...classes: (string | false | null | undefined)[]): string {
 export function getLocalizedPath(locale: Locale, path: string = ""): string {
   return `/${locale}${path ? `/${path}` : ""}`;
 }
+
+export function getAssetPath(path: string): string {
+  const base = process.env.PAGES_BASE_PATH ?? "";
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  return `${base}${normalized}`;
+}

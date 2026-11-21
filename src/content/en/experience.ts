@@ -2,7 +2,7 @@ import type { ExperienceLocalized } from "@/types/portfolio";
 
 export const experiences: Record<string, ExperienceLocalized> = {
   "techglobal-gps": {
-    organization: "TechGlobal GPS",
+    organization: "TechGlobal GPS & Camera",
     role: "Full Stack Developer",
     summary:
       "Working on TechGlobal LiveGTS, a fleet and vehicle GPS tracking system covering live monitoring, trip replay, routing, fleet/driver management, live camera, reports, regulatory integrations, and event alerts.",

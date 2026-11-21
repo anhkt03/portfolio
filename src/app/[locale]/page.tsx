@@ -44,7 +44,11 @@ export default async function HomePage({
 
   return (
     <Container>
-      <Intro profile={profile} />
+      <Intro
+        profile={profile}
+        viewResumeLabel={labels.viewResume}
+        downloadResumeLabel={labels.downloadResume}
+      />
 
       <Divider />
 
@@ -64,7 +68,7 @@ export default async function HomePage({
 
       <Section id="experience">
         <Heading as="h2">{labels.experience}</Heading>
-        <div className="mt-6">
+        <div className="mt-8">
           <ExperienceList experiences={experiences} presentLabel={labels.present} />
         </div>
       </Section>
@@ -73,7 +77,7 @@ export default async function HomePage({
 
       <Section id="skills">
         <Heading as="h2">{labels.skills}</Heading>
-        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 flex flex-col gap-4">
           {skills.map((group) => (
             <SkillGroup key={group.title} group={group} />
           ))}
@@ -83,9 +87,16 @@ export default async function HomePage({
       <Divider />
 
       <Section id="contact">
-        <Heading as="h2">{labels.contact}</Heading>
+        <Heading as="h2">{labels.contactMe}</Heading>
         <div className="mt-6">
-          <ContactLinks links={profile.socialLinks} />
+          <ContactLinks
+            profile={profile}
+            intro={labels.contactIntro}
+            phoneLabel={labels.phone}
+            emailLabel={labels.emailMe}
+            getInTouchLabel={labels.getInTouch}
+            downloadResumeLabel={labels.downloadResume}
+          />
         </div>
       </Section>
     </Container>

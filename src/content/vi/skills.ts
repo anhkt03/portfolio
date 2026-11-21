@@ -5,7 +5,7 @@ export const skills: SkillGroup[] = [
     title: "Backend",
     skills: [
       "C#", "ASP.NET Core", "ASP.NET MVC", "Entity Framework Core",
-      "REST APIs", "Microservices", "SignalR",
+      "Web API", "REST APIs", "Microservices", "SignalR",
     ],
   },
   {
@@ -13,6 +13,14 @@ export const skills: SkillGroup[] = [
     skills: [
       "TypeScript", "JavaScript", "HTML", "CSS",
       "React", "Next.js", "Angular", "Razor Pages",
+      "Zalo Mini App",
+    ],
+  },
+  {
+    title: "Kiến trúc & Thiết kế",
+    skills: [
+      "Clean Architecture", "SOLID", "Design Patterns",
+      "RESTful API", "Microservices",
     ],
   },
   {
@@ -23,24 +31,27 @@ export const skills: SkillGroup[] = [
     ],
   },
   {
-    title: "Hạ tầng & Tích hợp",
+    title: "DevOps & Cloud",
     skills: [
       "Docker", "Kubernetes / K3s", "Argo Workflows",
-      "RabbitMQ", "Git", "GitHub", "GitLab", "CI/CD",
+      "RabbitMQ", "Nginx", "CI/CD", "GitHub Actions",
+      "Git", "GitHub", "GitLab",
     ],
   },
   {
     title: "Kiểm thử & Giám sát",
     skills: [
-      "xUnit", "Selenium", "k6", "Grafana", "Loki", "Penetration Testing",
+      "xUnit", "Selenium", "k6", "Integration Testing",
+      "Grafana", "Loki", "Penetration Testing",
     ],
   },
   {
-    title: "AI & Học máy",
+    title: "Phát triển hỗ trợ AI",
     skills: [
-      "Prompt Engineering", "RAG (Retrieval-Augmented Generation)",
+      "AI Agents", "Prompt Engineering", "AI Workflows",
+      "RAG (Retrieval-Augmented Generation)",
       "Vector Databases & Embeddings", "Tích hợp LLM",
-      "Claude API", "OpenAI API", "Phát triển hỗ trợ AI",
+      "Claude API", "OpenAI API",
       "GitHub Copilot", "Claude Code", "Cursor",
     ],
   },

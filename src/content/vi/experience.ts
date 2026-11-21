@@ -2,7 +2,7 @@ import type { ExperienceLocalized } from "@/types/portfolio";
 
 export const experiences: Record<string, ExperienceLocalized> = {
   "techglobal-gps": {
-    organization: "TechGlobal GPS",
+    organization: "TechGlobal GPS & Camera",
     role: "Full Stack Developer",
     summary:
       "Làm việc trên TechGlobal LiveGTS, hệ thống giám sát phương tiện và đội xe GPS bao gồm giám sát trực tiếp, phát lại hành trình, định tuyến, quản lý đội xe/tài xế, camera trực tiếp, báo cáo, tích hợp quy định và cảnh báo sự kiện.",
