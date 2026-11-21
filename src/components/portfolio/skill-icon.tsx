@@ -17,6 +17,7 @@ type IconComp = (props: { className?: string }) => React.JSX.Element;
 type IconEntry = {
   Icon: IconComp;
   color: string;
+  darkColor?: string;
 };
 
 const palette = {
@@ -85,21 +86,50 @@ const palette = {
   pattern: "#6B7280",
 };
 
+// Lighter variants for colors that have poor contrast on a dark background
+const dark = {
+  next: "#f5f5f5",
+  github: "#f5f5f5",
+  cursor: "#e5e5e5",
+  heroui: "#f5f5f5",
+  zustand: "#d4d4d8",
+  mariadb: "#60a5fa",
+  sqlite: "#60a5fa",
+  arch: "#a1a1aa",
+  code: "#a1a1aa",
+  pattern: "#a1a1aa",
+  csharp: "#8b5cf6",
+  dotnet: "#8b5cf6",
+  ef: "#8b5cf6",
+  razor: "#8b5cf6",
+  xunit: "#8b5cf6",
+  solid: "#8b5cf6",
+  claude: "#f59e0b",
+  java: "#38bdf8",
+  mysql: "#38bdf8",
+  flutter: "#38bdf8",
+  python: "#60a5fa",
+  postgres: "#93c5fd",
+  gha: "#60a5fa",
+  k8s: "#60a5fa",
+  zalo: "#60a5fa",
+};
+
 const skillMap: Record<string, IconEntry> = {
   // Backend languages
-  "c#": { Icon: CSharpIcon, color: palette.csharp },
-  "csharp": { Icon: CSharpIcon, color: palette.csharp },
-  "asp.net core": { Icon: DotNetIcon, color: palette.dotnet },
-  "asp.net mvc": { Icon: DotNetIcon, color: palette.dotnet },
-  "asp.net": { Icon: DotNetIcon, color: palette.dotnet },
-  ".net": { Icon: DotNetIcon, color: palette.dotnet },
-  ".net core": { Icon: DotNetIcon, color: palette.dotnet },
-  "entity framework core": { Icon: DotNetIcon, color: palette.ef },
-  "entity framework": { Icon: DotNetIcon, color: palette.ef },
-  "web api": { Icon: CodeIcon, color: palette.code },
-  "rest apis": { Icon: CodeIcon, color: palette.code },
-  "restful api": { Icon: CodeIcon, color: palette.code },
-  "microservices": { Icon: ArchitectureIcon, color: palette.arch },
+  "c#": { Icon: CSharpIcon, color: palette.csharp, darkColor: dark.csharp },
+  "csharp": { Icon: CSharpIcon, color: palette.csharp, darkColor: dark.csharp },
+  "asp.net core": { Icon: DotNetIcon, color: palette.dotnet, darkColor: dark.dotnet },
+  "asp.net mvc": { Icon: DotNetIcon, color: palette.dotnet, darkColor: dark.dotnet },
+  "asp.net": { Icon: DotNetIcon, color: palette.dotnet, darkColor: dark.dotnet },
+  ".net": { Icon: DotNetIcon, color: palette.dotnet, darkColor: dark.dotnet },
+  ".net core": { Icon: DotNetIcon, color: palette.dotnet, darkColor: dark.dotnet },
+  "entity framework core": { Icon: DotNetIcon, color: palette.ef, darkColor: dark.ef },
+  "entity framework": { Icon: DotNetIcon, color: palette.ef, darkColor: dark.ef },
+  "web api": { Icon: CodeIcon, color: palette.code, darkColor: dark.code },
+  "rest apis": { Icon: CodeIcon, color: palette.code, darkColor: dark.code },
+  "restful api": { Icon: CodeIcon, color: palette.code, darkColor: dark.code },
+  "microservices": { Icon: ArchitectureIcon, color: palette.arch, darkColor: dark.arch },
   "signalr": { Icon: SignalRIcon, color: palette.signalr },
 
   // Frontend
@@ -109,29 +139,29 @@ const skillMap: Record<string, IconEntry> = {
   "css": { Icon: CodeIcon, color: palette.css },
   "scss": { Icon: CodeIcon, color: palette.scss },
   "react": { Icon: ReactIcon, color: palette.react },
-  "next.js": { Icon: NextjsIcon, color: palette.next },
+  "next.js": { Icon: NextjsIcon, color: palette.next, darkColor: dark.next },
   "angular": { Icon: AngularIcon, color: palette.angular },
-  "razor pages": { Icon: RazorIcon, color: palette.razor },
-  "razor": { Icon: RazorIcon, color: palette.razor },
-  "zalo mini app": { Icon: CodeIcon, color: palette.zalo },
-  "heroui": { Icon: CodeIcon, color: palette.heroui },
-  "zustand": { Icon: CodeIcon, color: palette.zustand },
+  "razor pages": { Icon: RazorIcon, color: palette.razor, darkColor: dark.razor },
+  "razor": { Icon: RazorIcon, color: palette.razor, darkColor: dark.razor },
+  "zalo mini app": { Icon: CodeIcon, color: palette.zalo, darkColor: dark.zalo },
+  "heroui": { Icon: CodeIcon, color: palette.heroui, darkColor: dark.heroui },
+  "zustand": { Icon: CodeIcon, color: palette.zustand, darkColor: dark.zustand },
   "react query": { Icon: CodeIcon, color: palette.reactQuery },
   "exceljs": { Icon: CodeIcon, color: palette.exceljs },
   "rxjs": { Icon: CodeIcon, color: palette.rxjs },
   "node.js": { Icon: CodeIcon, color: palette.node },
 
   // Architecture
-  "clean architecture": { Icon: ArchitectureIcon, color: palette.arch },
-  "solid": { Icon: ArchitectureIcon, color: palette.solid },
-  "design patterns": { Icon: ArchitectureIcon, color: palette.pattern },
+  "clean architecture": { Icon: ArchitectureIcon, color: palette.arch, darkColor: dark.arch },
+  "solid": { Icon: ArchitectureIcon, color: palette.solid, darkColor: dark.solid },
+  "design patterns": { Icon: ArchitectureIcon, color: palette.pattern, darkColor: dark.pattern },
 
   // Databases
   "sql server": { Icon: DatabaseIcon, color: palette.sqlServer },
-  "postgresql": { Icon: DatabaseIcon, color: palette.postgres },
-  "mysql": { Icon: DatabaseIcon, color: palette.mysql },
-  "mariadb": { Icon: DatabaseIcon, color: palette.mariadb },
-  "sqlite": { Icon: DatabaseIcon, color: palette.sqlite },
+  "postgresql": { Icon: DatabaseIcon, color: palette.postgres, darkColor: dark.postgres },
+  "mysql": { Icon: DatabaseIcon, color: palette.mysql, darkColor: dark.mysql },
+  "mariadb": { Icon: DatabaseIcon, color: palette.mariadb, darkColor: dark.mariadb },
+  "sqlite": { Icon: DatabaseIcon, color: palette.sqlite, darkColor: dark.sqlite },
   "redis": { Icon: RedisIcon, color: palette.redis },
   "vector databases": { Icon: VectorDbIcon, color: palette.vector },
   "vector databases & embeddings": { Icon: VectorDbIcon, color: palette.vector },
@@ -139,25 +169,25 @@ const skillMap: Record<string, IconEntry> = {
 
   // DevOps
   "docker": { Icon: DockerIcon, color: palette.docker },
-  "kubernetes": { Icon: KubernetesIcon, color: palette.k8s },
-  "kubernetes / k3s": { Icon: KubernetesIcon, color: palette.k8s },
-  "k3s": { Icon: KubernetesIcon, color: palette.k8s },
+  "kubernetes": { Icon: KubernetesIcon, color: palette.k8s, darkColor: dark.k8s },
+  "kubernetes / k3s": { Icon: KubernetesIcon, color: palette.k8s, darkColor: dark.k8s },
+  "k3s": { Icon: KubernetesIcon, color: palette.k8s, darkColor: dark.k8s },
   "argo workflows": { Icon: ArgoIcon, color: palette.argo },
   "rabbitmq": { Icon: RabbitMqIcon, color: palette.rabbit },
   "nginx": { Icon: NginxIcon, color: palette.nginx },
   "ci/cd": { Icon: CICDIcon, color: palette.cicd },
-  "github actions": { Icon: GitHubActionsIcon, color: palette.gha },
+  "github actions": { Icon: GitHubActionsIcon, color: palette.gha, darkColor: dark.gha },
   "git": { Icon: GitIcon, color: palette.git },
-  "github": { Icon: GithubIcon, color: palette.github },
+  "github": { Icon: GithubIcon, color: palette.github, darkColor: dark.github },
   "gitlab": { Icon: GitLabIcon, color: palette.gitlab },
   "aws s3": { Icon: AwsIcon, color: palette.aws },
   "linux": { Icon: LinuxIcon, color: palette.linux },
 
   // Testing & monitoring
-  "xunit": { Icon: XUnitIcon, color: palette.xunit },
+  "xunit": { Icon: XUnitIcon, color: palette.xunit, darkColor: dark.xunit },
   "selenium": { Icon: SeleniumIcon, color: palette.selenium },
   "k6": { Icon: K6Icon, color: palette.k6 },
-  "integration testing": { Icon: XUnitIcon, color: palette.xunit },
+  "integration testing": { Icon: XUnitIcon, color: palette.xunit, darkColor: dark.xunit },
   "grafana": { Icon: GrafanaIcon, color: palette.grafana },
   "loki": { Icon: LokiIcon, color: palette.loki },
   "penetration testing": { Icon: PenTestIcon, color: palette.pentest },
@@ -171,40 +201,45 @@ const skillMap: Record<string, IconEntry> = {
   "llm integration": { Icon: AIIcon, color: palette.ai },
   "tích hợp llm": { Icon: AIIcon, color: palette.ai },
   "embeddings": { Icon: VectorDbIcon, color: palette.vector },
-  "claude api": { Icon: ClaudeIcon, color: palette.claude },
+  "claude api": { Icon: ClaudeIcon, color: palette.claude, darkColor: dark.claude },
   "openai api": { Icon: OpenAIIcon, color: palette.openai },
   "github copilot": { Icon: CopilotIcon, color: palette.copilot },
-  "claude code": { Icon: ClaudeIcon, color: palette.claude },
-  "cursor": { Icon: CursorIcon, color: palette.cursor },
+  "claude code": { Icon: ClaudeIcon, color: palette.claude, darkColor: dark.claude },
+  "cursor": { Icon: CursorIcon, color: palette.cursor, darkColor: dark.cursor },
   "ai-assisted development": { Icon: AIIcon, color: palette.ai },
   "phát triển hỗ trợ ai": { Icon: AIIcon, color: palette.ai },
   "llm": { Icon: AIIcon, color: palette.ai },
 
   // Additional
-  "flutter": { Icon: FlutterIcon, color: palette.flutter },
-  "flutter / dart": { Icon: FlutterIcon, color: palette.flutter },
-  "flutter (dart)": { Icon: FlutterIcon, color: palette.flutter },
+  "flutter": { Icon: FlutterIcon, color: palette.flutter, darkColor: dark.flutter },
+  "flutter / dart": { Icon: FlutterIcon, color: palette.flutter, darkColor: dark.flutter },
+  "flutter (dart)": { Icon: FlutterIcon, color: palette.flutter, darkColor: dark.flutter },
   "dart": { Icon: FlutterIcon, color: palette.dart },
-  "python": { Icon: PythonIcon, color: palette.python },
-  "java": { Icon: JavaIcon, color: palette.java },
-  "java core": { Icon: JavaIcon, color: palette.java },
+  "python": { Icon: PythonIcon, color: palette.python, darkColor: dark.python },
+  "java": { Icon: JavaIcon, color: palette.java, darkColor: dark.java },
+  "java core": { Icon: JavaIcon, color: palette.java, darkColor: dark.java },
   "agile": { Icon: AgileIcon, color: palette.agile },
   "scrum": { Icon: AgileIcon, color: palette.agile },
   "jira": { Icon: JiraIcon, color: palette.jira },
-  "v-model": { Icon: ArchitectureIcon, color: palette.arch },
+  "v-model": { Icon: ArchitectureIcon, color: palette.arch, darkColor: dark.arch },
 
   // Project tech
   "osrm": { Icon: CodeIcon, color: palette.osrm },
   "vbot": { Icon: CodeIcon, color: palette.vbot },
-  "buffer api": { Icon: CodeIcon, color: palette.code },
+  "buffer api": { Icon: CodeIcon, color: palette.code, darkColor: dark.code },
   "sockets": { Icon: SignalRIcon, color: palette.signalr },
-  "telegram bot api": { Icon: CodeIcon, color: palette.code },
-  "qr code scanner": { Icon: CodeIcon, color: palette.code },
+  "telegram bot api": { Icon: CodeIcon, color: palette.code, darkColor: dark.code },
+  "qr code scanner": { Icon: CodeIcon, color: palette.code, darkColor: dark.code },
+  "redis lua": { Icon: RedisIcon, color: palette.redis },
+  "hangfire": { Icon: ArgoIcon, color: "#B91C1C", darkColor: "#f87171" },
+  "cloudflare r2": { Icon: AwsIcon, color: "#F38020", darkColor: "#fb923c" },
+  "bao kim": { Icon: CICDIcon, color: "#0ea5e9", darkColor: "#38bdf8" },
+  "multi-tenant saas": { Icon: ArchitectureIcon, color: palette.arch, darkColor: dark.arch },
 };
 
 export function getSkillIcon(skill: string): IconEntry {
   const key = skill.trim().toLowerCase();
   return (
-    skillMap[key] ?? { Icon: CodeIcon, color: palette.code }
+    skillMap[key] ?? { Icon: CodeIcon, color: palette.code, darkColor: dark.code }
   );
 }

@@ -54,7 +54,7 @@ export function Intro({
                 href={resumeHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-[var(--radius)] bg-[var(--color-accent)] px-3.5 py-2 text-sm font-medium text-white hover:bg-[var(--color-accent-hover)] transition-colors"
+                className="inline-flex items-center gap-1.5 rounded-[var(--radius)] bg-[var(--color-accent)] px-3.5 py-2 text-sm font-medium text-[var(--color-bg)] hover:bg-[var(--color-accent-hover)] transition-colors"
               >
                 <Eye className="h-4 w-4" aria-hidden="true" />
                 {viewResumeLabel}

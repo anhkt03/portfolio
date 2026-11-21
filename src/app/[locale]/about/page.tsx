@@ -99,6 +99,7 @@ export default async function AboutPage({
             emailLabel={labels.emailMe}
             getInTouchLabel={labels.getInTouch}
             downloadResumeLabel={labels.downloadResume}
+            shortResumeLabel={labels.resume}
           />
         </div>
       </Section>

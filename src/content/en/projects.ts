@@ -141,19 +141,37 @@ export const projects: Record<string, ProjectLocalized> = {
       "Full-stack platform with ASP.NET Core backend (clean architecture: Domain, Application, Infrastructure, API layers) and Next.js frontend. Supports two invitation modes: Shared (one link for all guests) and Personalized (unique card per guest with individual name rendering). PostgreSQL for data persistence, AWS S3 for media assets.",
   },
   "passenger-transport": {
-    title: "Passenger Transportation Management System",
+    title: "Passenger Transportation SaaS Platform",
     shortDescription:
-      "Bus operations platform for trip scheduling, sleeper seat allocation, passenger boarding, payment tracking, and pickup/drop-off management — with a Zalo Mini App front-end and operator dashboards.",
+      "Multi-tenant SaaS platform enabling bus transport operators to manage fleets, schedule routes, and process real-time passenger bookings via Zalo Mini App. Engineered atomic seat reservation with Redis Lua scripts, Bao Kim payment gateway, Hangfire backups to Cloudflare R2, and automated GitHub Actions CI/CD.",
     context: "Freelance — Full-stack Developer",
     role: "Full Stack Developer",
     responsibilities: [
-      "Developed passenger and trip management: trip scheduling, single/double sleeper seat allocation, pickup and drop-off management",
-      "Implemented passenger check-in and payment status tracking for onboard staff during trip operations",
-      "Built management dashboards for revenue reporting, trip statistics, and customer travel behavior analysis",
-      "Integrated a Zalo Mini App into the transportation ecosystem to support operational workflows",
+      "Designed the multi-tenant architecture with strict tenant isolation across operators, fleets, routes, and bookings",
+      "Engineered atomic seat reservation using Redis Lua scripts to prevent double-booking under concurrent high-traffic requests",
+      "Integrated the Bao Kim payment gateway for passenger bookings and operator settlements",
+      "Built end-to-end trip tracking: dispatcher assignment, bus-assistant boarding check-in, mid-trip passenger status, payment confirmation, and drop-off handoff",
+      "Shipped a Zalo Mini App so passengers can browse routes, reserve seats, pay, and track their trip in real time",
+      "Developed operator dashboards for fleet, driver, and route scheduling, revenue reporting, and trip-performance analytics",
+      "Scheduled Hangfire background jobs for nightly backups to Cloudflare R2 and recurring data housekeeping",
+      "Automated build, test, and deployment pipelines with GitHub Actions CI/CD",
     ],
     architecture:
-      "ASP.NET Core backend serving REST APIs for operators and a Zalo Mini App for drivers/passengers, with a React web dashboard for bus operators. Supports single/double sleeper seat layouts, passenger verification, and payment reconciliation.",
+      "Multi-tenant SaaS: ASP.NET Core backend on Clean Architecture, SQL Server as the system of record, Redis + Lua scripts as the hot-path seat-inventory store, Hangfire for background jobs backing up to Cloudflare R2. Passengers interact through a Zalo Mini App while operators use a React admin dashboard. Payment flows through the Bao Kim gateway with reconciliation jobs; the whole stack ships via GitHub Actions pipelines.",
+    technicalDecisions: [
+      {
+        decision: "Redis Lua scripts for atomic seat reservation",
+        rationale:
+          "During booking bursts (promotions, holiday peaks) multiple passengers may race for the same seat. A single Lua script executed server-side on Redis guarantees atomic check-and-reserve, eliminating double-booking without a distributed lock.",
+        tradeoffs:
+          "Reservation state lives in Redis, so it must be re-materialized into SQL Server at confirmation time; added a reconciliation path for rare Redis failovers.",
+      },
+      {
+        decision: "Hangfire + Cloudflare R2 for backups and background work",
+        rationale:
+          "Hangfire runs in-process with the API, keeping operational surface small; R2 provides low-egress object storage, well suited to nightly database snapshots and media backups.",
+      },
+    ],
   },
   "social-media-app": {
     title: "Social Media Web Application",

@@ -16,12 +16,12 @@ export function SiteNav({
 
   return (
     <nav aria-label={locale === "vi" ? "Điều hướng chính" : "Main navigation"}>
-      <ul className="flex items-center gap-1">
+      <ul className="flex items-center gap-0.5 sm:gap-1">
         {links.map((link) => (
           <li key={link.href}>
             <Link
               href={link.href}
-              className="rounded-[var(--radius)] px-3 py-1.5 text-sm font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-bg-subtle)] transition-colors"
+              className="whitespace-nowrap rounded-[var(--radius)] px-1.5 py-1 sm:px-3 sm:py-1.5 text-xs sm:text-sm font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-bg-subtle)] transition-colors"
             >
               {link.label}
             </Link>

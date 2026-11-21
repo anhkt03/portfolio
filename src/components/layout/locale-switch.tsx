@@ -19,10 +19,10 @@ export function LocaleSwitch({
   return (
     <Link
       href={targetPath}
-      className="flex items-center gap-1.5 rounded-[var(--radius)] px-3 py-1.5 text-sm font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-bg-subtle)] transition-colors"
+      className="flex items-center gap-1 sm:gap-1.5 whitespace-nowrap rounded-[var(--radius)] px-1.5 py-1 sm:px-3 sm:py-1.5 text-xs sm:text-sm font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-[var(--color-bg-subtle)] transition-colors"
       aria-label={`Switch to ${label}`}
     >
-      <Globe className="h-3.5 w-3.5" aria-hidden="true" />
+      <Globe className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
       <span>{label}</span>
     </Link>
   );

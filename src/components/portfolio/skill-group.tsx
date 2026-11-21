@@ -1,4 +1,5 @@
 import type { SkillGroup as SkillGroupType } from "@/types/portfolio";
+import type { CSSProperties } from "react";
 import { getSkillIcon } from "./skill-icon";
 
 export function SkillGroup({ group }: { group: SkillGroupType }) {
@@ -9,16 +10,18 @@ export function SkillGroup({ group }: { group: SkillGroupType }) {
       </h3>
       <ul className="flex flex-wrap gap-2">
         {group.skills.map((skill) => {
-          const { Icon, color } = getSkillIcon(skill);
+          const { Icon, color, darkColor } = getSkillIcon(skill);
+          const style = {
+            "--tc-light": color,
+            "--tc-dark": darkColor ?? color,
+          } as CSSProperties;
           return (
             <li
               key={skill}
               className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-bg-subtle)] px-2.5 py-1 text-xs font-medium text-[var(--color-text-secondary)]"
+              style={style}
             >
-              <Icon
-                className="h-3.5 w-3.5 shrink-0"
-                {...({ style: { color } } as Record<string, unknown>)}
-              />
+              <Icon className="tech-icon h-3.5 w-3.5 shrink-0" />
               <span>{skill}</span>
             </li>
           );

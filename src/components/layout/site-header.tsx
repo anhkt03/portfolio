@@ -4,6 +4,7 @@ import { getLabels } from "@/content/navigation";
 import { Container } from "@/components/ui/container";
 import { SiteNav } from "./site-nav";
 import { LocaleSwitch } from "./locale-switch";
+import { ThemeToggle } from "./theme-toggle";
 
 export function SiteHeader({ locale }: { locale: Locale }) {
   const labels = getLabels(locale);
@@ -15,10 +16,11 @@ export function SiteHeader({ locale }: { locale: Locale }) {
           href={`/${locale}`}
           className="text-base font-semibold text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors"
         >
-          KTA
+          KTTA
         </Link>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-0.5 sm:gap-1">
           <SiteNav locale={locale} labels={labels} />
+          <ThemeToggle labels={{ light: labels.switchToLight, dark: labels.switchToDark }} />
           <LocaleSwitch locale={locale} label={labels.switchLanguage} />
         </div>
       </Container>

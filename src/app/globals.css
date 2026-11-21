@@ -21,6 +21,42 @@
   --radius-sm: 4px;
   --radius: 6px;
   --radius-lg: 8px;
+
+  color-scheme: light;
+}
+
+/* Explicit dark mode override via <html data-theme="dark"> */
+:root[data-theme="dark"] {
+  --color-bg: #0a0a0a;
+  --color-bg-subtle: #18181b;
+  --color-text: #fafafa;
+  --color-text-muted: #a1a1aa;
+  --color-text-secondary: #d4d4d8;
+  --color-border: #27272a;
+  --color-border-strong: #3f3f46;
+  --color-accent: #60a5fa;
+  --color-accent-hover: #93c5fd;
+  --color-accent-subtle: #1e3a8a33;
+
+  color-scheme: dark;
+}
+
+/* Follow OS preference when user hasn't chosen explicitly */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #0a0a0a;
+    --color-bg-subtle: #18181b;
+    --color-text: #fafafa;
+    --color-text-muted: #a1a1aa;
+    --color-text-secondary: #d4d4d8;
+    --color-border: #27272a;
+    --color-border-strong: #3f3f46;
+    --color-accent: #60a5fa;
+    --color-accent-hover: #93c5fd;
+    --color-accent-subtle: #1e3a8a33;
+
+    color-scheme: dark;
+  }
 }
 
 @theme inline {
@@ -36,9 +72,13 @@
   border-color: var(--color-border);
 }
 
+html,
 body {
   background: var(--color-bg);
   color: var(--color-text);
+}
+
+body {
   font-family: var(--font-sans);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -47,12 +87,27 @@ body {
 
 ::selection {
   background: var(--color-accent);
-  color: white;
+  color: var(--color-bg);
 }
 
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
+}
+
+/* Brand-colored tech icons — resolve to dark-mode-friendly variant when available */
+.tech-icon {
+  color: var(--tc-light, currentColor);
+}
+
+:root[data-theme="dark"] .tech-icon {
+  color: var(--tc-dark, var(--tc-light, currentColor));
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tech-icon {
+    color: var(--tc-dark, var(--tc-light, currentColor));
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

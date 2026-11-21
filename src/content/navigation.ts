@@ -32,6 +32,8 @@ const labels: Record<Locale, NavigationLabels> = {
     phone: "Phone",
     emailMe: "Email me",
     getInTouch: "Get in touch",
+    switchToLight: "Switch to light mode",
+    switchToDark: "Switch to dark mode",
   },
   vi: {
     home: "Trang chủ",
@@ -64,6 +66,8 @@ const labels: Record<Locale, NavigationLabels> = {
     phone: "Điện thoại",
     emailMe: "Gửi email",
     getInTouch: "Kết nối",
+    switchToLight: "Chuyển sang chế độ sáng",
+    switchToDark: "Chuyển sang chế độ tối",
   },
 };
 

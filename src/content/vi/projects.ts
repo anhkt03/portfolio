@@ -141,19 +141,37 @@ export const projects: Record<string, ProjectLocalized> = {
       "Nền tảng full-stack với backend ASP.NET Core (kiến trúc sạch: Domain, Application, Infrastructure, API layers) và frontend Next.js. Hỗ trợ hai chế độ thiệp mời: Chia sẻ (một link cho tất cả khách mời) và Cá nhân hóa (thiệp riêng cho từng khách mời với tên riêng). PostgreSQL cho lưu trữ dữ liệu, AWS S3 cho tài sản media.",
   },
   "passenger-transport": {
-    title: "Hệ thống Quản lý Vận tải Hành khách",
+    title: "Nền tảng SaaS Vận tải Hành khách",
     shortDescription:
-      "Nền tảng quản lý xe khách: lịch trình, sắp xếp ghế nằm đơn/đôi, check-in hành khách, theo dõi thanh toán và quản lý điểm đón/trả — với Zalo Mini App cho khách và dashboard quản lý cho nhà xe.",
+      "Nền tảng SaaS đa tenant cho nhà xe vận tải: quản lý đội xe, lập lịch tuyến, xử lý đặt vé thời gian thực qua Zalo Mini App. Triển khai giữ chỗ ghế atomic bằng Redis Lua script, tích hợp cổng thanh toán Bảo Kim, backup Hangfire lên Cloudflare R2 và CI/CD tự động qua GitHub Actions.",
     context: "Freelance — Full-stack Developer",
     role: "Full Stack Developer",
     responsibilities: [
-      "Phát triển quản lý hành khách và chuyến đi: lên lịch chuyến, sắp xếp ghế nằm đơn/đôi, quản lý điểm đón/trả",
-      "Triển khai check-in và theo dõi trạng thái thanh toán cho nhân viên trên xe trong suốt hành trình",
-      "Xây dựng dashboard quản lý doanh thu, thống kê chuyến đi và phân tích hành vi đi lại của khách hàng",
-      "Tích hợp Zalo Mini App vào hệ sinh thái vận tải để hỗ trợ quy trình vận hành",
+      "Thiết kế kiến trúc multi-tenant với cô lập dữ liệu chặt chẽ giữa các nhà xe, đội xe, tuyến và booking",
+      "Xây dựng giữ chỗ ghế atomic bằng Redis Lua script, chống đặt trùng khi lưu lượng đồng thời cao",
+      "Tích hợp cổng thanh toán Bảo Kim cho đặt vé hành khách và đối soát với nhà xe",
+      "Phát triển tracking chuyến đi đầy đủ: điều phối phân xe, phụ xe check khách lên xe, trạng thái khách giữa chuyến, xác nhận thanh toán và điểm trả khách",
+      "Phát hành Zalo Mini App cho hành khách tìm tuyến, đặt ghế, thanh toán và theo dõi chuyến đi real-time",
+      "Xây dựng dashboard nhà xe: quản lý đội xe, tài xế, lập lịch tuyến, báo cáo doanh thu và phân tích hiệu quả chuyến đi",
+      "Lập lịch job Hangfire backup định kỳ lên Cloudflare R2 và các tác vụ dọn dẹp dữ liệu",
+      "Tự động hóa pipeline build, test và deploy bằng GitHub Actions CI/CD",
     ],
     architecture:
-      "Backend ASP.NET Core cung cấp REST API cho nhà xe và Zalo Mini App cho tài xế/hành khách, kèm dashboard React cho nhà xe. Hỗ trợ ghế nằm đơn/đôi, xác thực hành khách và đối soát thanh toán.",
+      "SaaS multi-tenant: backend ASP.NET Core theo Clean Architecture, SQL Server làm hệ thống chính, Redis + Lua script lưu tồn kho ghế hot-path, Hangfire chạy background job backup lên Cloudflare R2. Hành khách sử dụng Zalo Mini App, nhà xe dùng dashboard React. Thanh toán qua cổng Bảo Kim có job đối soát; toàn bộ stack deploy qua GitHub Actions.",
+    technicalDecisions: [
+      {
+        decision: "Redis Lua script cho giữ chỗ ghế atomic",
+        rationale:
+          "Khi có cao điểm đặt vé (khuyến mãi, lễ tết), nhiều khách có thể tranh cùng một ghế. Một Lua script chạy server-side trên Redis đảm bảo check và giữ chỗ atomic, loại bỏ đặt trùng mà không cần distributed lock.",
+        tradeoffs:
+          "Trạng thái giữ chỗ nằm ở Redis, cần đồng bộ về SQL Server khi xác nhận; thêm reconciliation path cho trường hợp Redis failover.",
+      },
+      {
+        decision: "Hangfire + Cloudflare R2 cho backup và background job",
+        rationale:
+          "Hangfire chạy in-process cùng API giúp giảm bề mặt vận hành; R2 có egress rẻ, phù hợp với snapshot database và backup media hàng đêm.",
+      },
+    ],
   },
   "social-media-app": {
     title: "Ứng dụng Mạng Xã Hội",

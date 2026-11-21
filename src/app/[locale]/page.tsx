@@ -96,6 +96,7 @@ export default async function HomePage({
             emailLabel={labels.emailMe}
             getInTouchLabel={labels.getInTouch}
             downloadResumeLabel={labels.downloadResume}
+            shortResumeLabel={labels.resume}
           />
         </div>
       </Section>

@@ -1,4 +1,5 @@
 import type { Experience } from "@/types/portfolio";
+import type { CSSProperties } from "react";
 import { formatDateRange } from "@/lib/utils";
 import { getSkillIcon } from "./skill-icon";
 
@@ -85,16 +86,18 @@ export function ExperienceList({
               {exp.technologies && exp.technologies.length > 0 && (
                 <div className="mt-4 flex flex-wrap gap-1.5">
                   {exp.technologies.map((tech) => {
-                    const { Icon, color } = getSkillIcon(tech);
+                    const { Icon, color, darkColor } = getSkillIcon(tech);
+                    const style = {
+                      "--tc-light": color,
+                      "--tc-dark": darkColor ?? color,
+                    } as CSSProperties;
                     return (
                       <span
                         key={tech}
                         className="inline-flex items-center gap-1 rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-bg-subtle)] px-2 py-0.5 text-xs font-medium text-[var(--color-text-secondary)]"
+                        style={style}
                       >
-                        <Icon
-                          className="h-3 w-3 shrink-0"
-                          {...({ style: { color } } as Record<string, unknown>)}
-                        />
+                        <Icon className="tech-icon h-3 w-3 shrink-0" />
                         {tech}
                       </span>
                     );

@@ -106,4 +106,6 @@ export interface NavigationLabels {
   phone: string;
   emailMe: string;
   getInTouch: string;
+  switchToLight: string;
+  switchToDark: string;
 }

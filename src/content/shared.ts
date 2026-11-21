@@ -99,8 +99,10 @@ export const projectsShared: Record<string, ProjectShared> = {
   "passenger-transport": {
     slug: "passenger-transport",
     technologies: [
-      "C#", "ASP.NET Core", "React", "Zalo Mini App",
-      "SQL Server", "REST APIs",
+      "C#", "ASP.NET Core", "Clean Architecture", "SQL Server",
+      "Redis", "Redis Lua", "Hangfire", "Cloudflare R2",
+      "Bao Kim", "React", "Zalo Mini App",
+      "GitHub Actions", "Docker", "Multi-tenant SaaS",
     ],
     featured: false,
     startDate: "",
